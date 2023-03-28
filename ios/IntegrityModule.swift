@@ -1,4 +1,5 @@
 import ExpoModulesCore
+import DeviceCheck
 
 public class IntegrityModule: Module {
   // Each module class must implement the definition function. The definition consists of components
@@ -21,6 +22,15 @@ public class IntegrityModule: Module {
     // Defines a JavaScript synchronous function that runs the native code on the JavaScript thread.
     Function("hello") {
       return "Hello world! 👋"
+    }
+
+    Function("isSupported") { () -> Bool in
+      if #available(iOS 14.0, *) {
+        let service = DCAppAttestService.shared
+        return service.isSupported
+      }
+
+      return false
     }
 
     // Defines a JavaScript function that always returns a Promise and whose native code

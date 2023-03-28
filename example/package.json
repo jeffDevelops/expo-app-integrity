@@ -2,15 +2,17 @@
   "name": "integrity-example",
   "version": "1.0.0",
   "scripts": {
-    "start": "expo start --dev-client",
-    "android": "expo run:android",
-    "ios": "expo run:ios",
-    "web": "expo start --web"
+    "start": "expo start --dev-client --tunnel",
+    "android": "expo run:android --tunnel",
+    "ios": "expo run:ios --tunnel",
+    "web": "expo start --web",
+    "dev:build": "npx expo start --dev-client --tunnel"
   },
   "dependencies": {
     "expo": "~48.0.9",
     "react": "18.2.0",
-    "react-native": "0.71.4"
+    "react-native": "0.71.4",
+    "expo-dev-client": "~2.1.6"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

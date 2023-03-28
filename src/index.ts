@@ -1,26 +1,42 @@
-import { NativeModulesProxy, EventEmitter, Subscription } from 'expo-modules-core';
+import {
+  NativeModulesProxy,
+  EventEmitter,
+  Subscription,
+} from 'expo-modules-core'
 
+import { ChangeEventPayload, IntegrityViewProps } from './Integrity.types'
 // Import the native module. On web, it will be resolved to Integrity.web.ts
 // and on native platforms to Integrity.ts
-import IntegrityModule from './IntegrityModule';
-import IntegrityView from './IntegrityView';
-import { ChangeEventPayload, IntegrityViewProps } from './Integrity.types';
+import IntegrityModule from './IntegrityModule'
+import IntegrityView from './IntegrityView'
 
 // Get the native constant value.
-export const PI = IntegrityModule.PI;
+export const PI = IntegrityModule.PI
 
 export function hello(): string {
-  return IntegrityModule.hello();
+  return IntegrityModule.hello()
 }
 
 export async function setValueAsync(value: string) {
-  return await IntegrityModule.setValueAsync(value);
+  return await IntegrityModule.setValueAsync(value)
 }
 
-const emitter = new EventEmitter(IntegrityModule ?? NativeModulesProxy.Integrity);
+const emitter = new EventEmitter(
+  IntegrityModule ?? NativeModulesProxy.Integrity,
+)
 
-export function addChangeListener(listener: (event: ChangeEventPayload) => void): Subscription {
-  return emitter.addListener<ChangeEventPayload>('onChange', listener);
+export function addChangeListener(
+  listener: (event: ChangeEventPayload) => void,
+): Subscription {
+  return emitter.addListener<ChangeEventPayload>('onChange', listener)
 }
 
-export { IntegrityView, IntegrityViewProps, ChangeEventPayload };
+export { IntegrityView, IntegrityViewProps, ChangeEventPayload }
+
+/** Module Starts Here */
+
+export function isSupported(): boolean {
+  return IntegrityModule.isSupported()
+}
+
+/** Module Ends Here */

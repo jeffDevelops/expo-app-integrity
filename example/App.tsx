@@ -1,13 +1,16 @@
-import { StyleSheet, Text, View } from 'react-native';
-
-import * as Integrity from 'integrity';
+import * as Integrity from 'integrity'
+import { StyleSheet, Text, View } from 'react-native'
 
 export default function App() {
   return (
     <View style={styles.container}>
       <Text>{Integrity.hello()}</Text>
+
+      <Text>
+        AppAttest isSupported: {Integrity.isSupported() ? 'Yes' : 'No'}
+      </Text>
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
@@ -17,4 +20,4 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-});
+})
