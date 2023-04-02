@@ -2,17 +2,19 @@
   "name": "integrity-example",
   "version": "1.0.0",
   "scripts": {
-    "start": "expo start --dev-client --tunnel",
+    "start": "REACT_NATIVE_PACKAGER_HOSTNAME=192.168.0.24 npx expo start --dev-client --tunnel --clear",
     "android": "expo run:android --tunnel",
     "ios": "expo run:ios --tunnel",
     "web": "expo start --web",
-    "dev:build": "npx expo start --dev-client --tunnel"
+    "dev:build": "REACT_NATIVE_PACKAGER_HOSTNAME=192.168.0.24 npx expo start --dev-client --tunnel"
   },
   "dependencies": {
     "expo": "~48.0.9",
     "react": "18.2.0",
     "react-native": "0.71.4",
-    "expo-dev-client": "~2.1.6"
+    "expo-dev-client": "~2.1.6",
+    "expo-build-properties": "~0.5.1",
+    "expo-secure-store": "~12.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

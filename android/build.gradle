@@ -87,5 +87,6 @@ repositories {
 
 dependencies {
   implementation project(':expo-modules-core')
+  implementation("com.google.android.play:integrity:1.1.0")
   implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${getKotlinVersion()}"
 }

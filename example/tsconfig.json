@@ -3,8 +3,8 @@
   "compilerOptions": {
     "strict": true,
     "paths": {
-      "integrity": ["../src/index"],
-      "integrity/*": ["../src/*"]
+      "expo-app-integrity": ["../src/index"],
+      "expo-app-integrity/*": ["../src/*"]
     }
   }
 }
