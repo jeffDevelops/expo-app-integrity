@@ -1,5 +1,5 @@
 {
-  "name": "integrity",
+  "name": "expo-app-integrity",
   "version": "0.1.0",
   "description": "App Attest and App Integrity APIs",
   "main": "build/index.js",
@@ -21,14 +21,15 @@
     "integrity",
     "Integrity"
   ],
-  "repository": "https://github.com/jeffDevelops/integrity",
+  "repository": "https://github.com/jeffDevelops/expo-app-integrity",
   "bugs": {
-    "url": "https://github.com/jeffDevelops/integrity/issues"
+    "url": "https://github.com/jeffDevelops/expo-app-integrity/issues"
   },
   "author": "Jeff <jefferydreynolds@gmail.com> (https://github.com/jeffDevelops)",
   "license": "MIT",
-  "homepage": "https://github.com/jeffDevelops/integrity#readme",
-  "dependencies": {},
+  "homepage": "https://github.com/jeffDevelops/expo-app-integrity#readme",
+  "dependencies": {
+  },
   "devDependencies": {
     "@types/react": "^18.0.25",
     "@types/react-native": "^0.70.6",
@@ -38,6 +39,7 @@
   "peerDependencies": {
     "expo": "*",
     "react": "*",
-    "react-native": "*"
+    "react-native": "*",
+    "expo-secure-store": "~12.1.1"
   }
 }
