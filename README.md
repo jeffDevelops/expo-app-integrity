@@ -120,6 +120,7 @@ Integrity.attestKey(
 Errors are enumerations of the `DCError` (Device Check) class (iOS) or the `IntegrityServiceException` class (Android), with a few `expo-app-integrity` additions for handling platform agnosticism.
 
 All possible errors and their resolutions are laid out here:
+
 [iOS](./src/errors/iOS.ts)
 
 [Android](./src/errors/Android.ts)
