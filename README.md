@@ -10,7 +10,7 @@ This library requires that you are following the ["bare" Expo workflow](https://
 
 This library requires a deployment target of iOS `14.0` or higher.
 
-For iOS, you'll need an Apple Developer account ($100 / year) to create an `eas` development build of your app to work with. **App Attest does not work in the Simulator**. You'll need to configure your development team and enable the App Attest capability for your app in XCode.
+For iOS, you'll need an Apple Developer account ($100 / year) to create an `eas` development build of your app to work with. **App Attest does not work in the Simulator**. You'll need to configure your development team and enable the App Attest capability for your app in Xcode.
 
 For Android, you'll need a Google Developer Profile (one-time payment of $25). Play Integrity API does work in emulators with the Play Store installed.
 
