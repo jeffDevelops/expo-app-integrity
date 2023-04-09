@@ -41,6 +41,8 @@
     "expo": "*",
     "react": "*",
     "react-native": "*",
-    "expo-secure-store": "~12.1.1"
+    "expo-secure-store": "~12.1.1",
+    "expo-build-properties": "~0.5.1",
+    "expo-device": "~5.2.1"
   }
 }
