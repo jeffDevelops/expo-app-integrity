@@ -2,10 +2,6 @@ import CryptoKit
 import DeviceCheck
 import ExpoModulesCore
 
-private struct DeviceCheckException: Error {
-    var reason: String
-}
-
 @available(iOS 14.0, *)
 public class IntegrityModule: Module {
 
@@ -32,6 +28,20 @@ public class IntegrityModule: Module {
           }
     }
     
+    private class IntegrityModuleException: GenericException<OSStatus> {
+        private var appAttestError: DeviceCheckError
+        
+        init(appAttestError: DeviceCheckError) {
+            self.appAttestError = appAttestError
+            super.init(OSStatus())
+        }
+        
+        override var reason: String {
+            self.appAttestError.description
+        }
+    }
+
+    
     enum AppAttestRequestResult {
         case success(result: String),
              error(error: DeviceCheckError)
@@ -57,14 +67,14 @@ public class IntegrityModule: Module {
         }
     }
     
-    private func appAttestSuccessCompletion(
+    private func appAttestCompletion(
         result: AppAttestSuccessResult,
         error: (any Error)?,
         continuation: CheckedContinuation<IntegrityModule.AppAttestRequestResult, Never>
     ) -> Void {
 
         if let error = error as? DCError {
-            self.handleDeviceCheckError(error: error, continuation: continuation)
+            return self.handleDeviceCheckError(error: error, continuation: continuation)
         } else if error != nil {
             return continuation.resume(
                 returning: AppAttestRequestResult.error(
@@ -127,9 +137,12 @@ public class IntegrityModule: Module {
         }
 
         AsyncFunction("generateKey") { () async throws -> String in
+            
+            
             let result = await withCheckedContinuation { continuation in
                 service.generateKey { result, error in
-                    return self.appAttestSuccessCompletion(
+                    
+                    return self.appAttestCompletion(
                         result: AppAttestSuccessResult.keyIdentifier(string: result),
                         error: error,
                         continuation: continuation
@@ -138,7 +151,7 @@ public class IntegrityModule: Module {
             }
             
             switch (result) {
-            case .error(let error): throw DeviceCheckException(reason: error.description)
+            case .error(let error): throw IntegrityModuleException(appAttestError: error)
             case .success(let result): return result
             }
         }
@@ -150,16 +163,16 @@ public class IntegrityModule: Module {
             let hash = Data(SHA256.hash(data: Data(challenge.utf8)))
             let result = await withCheckedContinuation { continuation in
                 service.attestKey(keyIdentifier, clientDataHash: hash) { result, error in
-                    return self.appAttestSuccessCompletion(
+                    return self.appAttestCompletion(
                         result: AppAttestSuccessResult.attestation(data: result),
                         error: error,
                         continuation: continuation
                     )
                 }
             }
-            
+                        
             switch (result) {
-            case .error(let error): throw DeviceCheckException(reason: error.description)
+            case .error(let error): throw IntegrityModuleException(appAttestError: error)
             case .success(let result): return result
             }
             
@@ -172,7 +185,7 @@ public class IntegrityModule: Module {
             let hash = Data(SHA256.hash(data: Data(requestJSON.utf8)))
             let result = await withCheckedContinuation { continuation in
                 service.generateAssertion(keyIdentifier, clientDataHash: hash) { result, error in
-                    return self.appAttestSuccessCompletion(
+                    return self.appAttestCompletion(
                         result: AppAttestSuccessResult.assertion(data: result),
                         error: error,
                         continuation: continuation
@@ -181,7 +194,7 @@ public class IntegrityModule: Module {
             }
             
             switch (result) {
-            case .error(let error): throw DeviceCheckException(reason: error.description)
+            case .error(let error): throw IntegrityModuleException(appAttestError: error)
             case .success(let result): return result
             }
         }

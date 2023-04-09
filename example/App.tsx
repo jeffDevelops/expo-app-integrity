@@ -3,21 +3,23 @@ import { useEffect, useState } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
 const serverAttestationChallenge = 'serverAttestationChallenge'
-// const serverAssertionChallenge = 'serverAssertionChallenge'
+const cloudProjectNumber = 1066543603178
 
 export default function App() {
   const [attestation, setAttestation] = useState<string | null>(null)
-  const [error, setError] = useState<unknown | null>(null)
+  const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
     ;(async () => {
       try {
         const attestation = await Integrity.attestKey(
           serverAttestationChallenge,
+          cloudProjectNumber,
         )
         setAttestation(attestation)
-      } catch (error) {
-        setError(error)
+      } catch (error: any) {
+        console.log({ error })
+        setError(error.code)
       }
     })()
   }, [])
@@ -25,13 +27,13 @@ export default function App() {
   return (
     <View style={styles.container}>
       <>
-        <Text>
-          AppAttest isSupported: {Integrity.isSupported() ? 'Yes' : 'No'}
-        </Text>
         <Text>AppAttest attestation: {attestation ?? 'N/A'}</Text>
 
         {error && (
-          <Text>AppAttest error: {(error as Error)?.message ?? 'N/A'}</Text>
+          <>
+            <Text>AppAttest error:</Text>
+            <Text>{error ?? 'N/A'}</Text>
+          </>
         )}
       </>
     </View>
