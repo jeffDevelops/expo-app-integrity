@@ -8,6 +8,7 @@ import {
   iOSAppAttestErrors,
   AndroidIntegrityErrors,
   unhandledException,
+  PlatformAgnosticErrors,
 } from './errors'
 
 /** iOS Only */
@@ -168,15 +169,11 @@ export async function attestKey(
       return await iOSAttestKey(challenge)
     case 'android':
       if (!cloudProjectNumber)
-        throw new Error(
-          'cloudProjectNumber is required for attestation with Google Play Integrity API',
-        )
+        throw AndroidIntegrityErrors.CLOUD_PROJECT_NUMBER_IS_INVALID
 
       return await androidRequestIntegrityVerdict(challenge, cloudProjectNumber)
     default:
-      throw new Error(
-        'Unsupported platform. Supported platforms are iOS and Android.',
-      )
+      throw PlatformAgnosticErrors.UNSUPPORTED_PLATFORM
   }
 }
 
