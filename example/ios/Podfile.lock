@@ -86,12 +86,16 @@ PODS:
     - expo-dev-menu/GestureHandler
     - expo-dev-menu/Reanimated
     - expo-dev-menu/SafeAreaView
+  - ExpoDevice (5.2.1):
+    - ExpoModulesCore
   - ExpoKeepAwake (12.0.1):
     - ExpoModulesCore
   - ExpoModulesCore (1.2.6):
     - React-Core
     - React-RCTAppDelegate
     - ReactCommon/turbomodule/core
+  - EXSecureStore (12.1.1):
+    - ExpoModulesCore
   - EXUpdatesInterface (0.9.1)
   - FBLazyVector (0.71.4)
   - FBReactNativeSpec (0.71.4):
@@ -460,8 +464,10 @@ DEPENDENCIES:
   - expo-dev-launcher (from `../node_modules/expo-dev-launcher`)
   - expo-dev-menu (from `../node_modules/expo-dev-menu`)
   - expo-dev-menu-interface (from `../node_modules/expo-dev-menu-interface/ios`)
+  - ExpoDevice (from `../node_modules/expo-device/ios`)
   - ExpoKeepAwake (from `../node_modules/expo-keep-awake/ios`)
   - ExpoModulesCore (from `../node_modules/expo-modules-core`)
+  - EXSecureStore (from `../node_modules/expo-secure-store/ios`)
   - EXUpdatesInterface (from `../node_modules/expo-updates-interface/ios`)
   - FBLazyVector (from `../node_modules/react-native/Libraries/FBLazyVector`)
   - FBReactNativeSpec (from `../node_modules/react-native/React/FBReactNativeSpec`)
@@ -531,10 +537,14 @@ EXTERNAL SOURCES:
     :path: "../node_modules/expo-dev-menu"
   expo-dev-menu-interface:
     :path: "../node_modules/expo-dev-menu-interface/ios"
+  ExpoDevice:
+    :path: "../node_modules/expo-device/ios"
   ExpoKeepAwake:
     :path: "../node_modules/expo-keep-awake/ios"
   ExpoModulesCore:
     :path: "../node_modules/expo-modules-core"
+  EXSecureStore:
+    :path: "../node_modules/expo-secure-store/ios"
   EXUpdatesInterface:
     :path: "../node_modules/expo-updates-interface/ios"
   FBLazyVector:
@@ -618,15 +628,17 @@ SPEC CHECKSUMS:
   expo-dev-launcher: c50f1b78ea294f5762902b768952898d17739983
   expo-dev-menu: 9f454e0353860c80c55a9805e16dfebf4fd2da5e
   expo-dev-menu-interface: 6c82ae323c4b8724dead4763ce3ff24a2108bdb1
+  ExpoDevice: e0bebf68f978b3d353377ce42e73c20c0a070215
   ExpoKeepAwake: 69f5f627670d62318410392d03e0b5db0f85759a
   ExpoModulesCore: 6e0259511f4c4341b6b8357db393624df2280828
+  EXSecureStore: e8923258361cc406d0401af380f12bd05b2b720f
   EXUpdatesInterface: dd699d1930e28639dcbd70a402caea98e86364ca
   FBLazyVector: 446e84642979fff0ba57f3c804c2228a473aeac2
   FBReactNativeSpec: 241709e132e3bf1526c1c4f00bc5384dd39dfba9
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
   glog: 04b94705f318337d7ead9e6d17c019bd9b1f6b1b
   hermes-engine: a1f157c49ea579c28b0296bda8530e980c45bdb3
-  Integrity: 0595b61a79b232f1d68fe3d4db9ae1d88c3b5d28
+  Integrity: 3e7a976402240ea80cb233a2771781a33e3245d7
   libevent: 4049cae6c81cdb3654a443be001fb9bdceff7913
   RCT-Folly: 424b8c9a7a0b9ab2886ffe9c3b041ef628fd4fb1
   RCTRequired: 5a024fdf458fa8c0d82fc262e76f982d4dcdecdd

@@ -29,6 +29,7 @@
   "license": "MIT",
   "homepage": "https://github.com/jeffDevelops/expo-app-integrity#readme",
   "dependencies": {
+    "expo-device": "~5.2.1"
   },
   "devDependencies": {
     "@types/react": "^18.0.25",
@@ -40,6 +41,8 @@
     "expo": "*",
     "react": "*",
     "react-native": "*",
-    "expo-secure-store": "~12.1.1"
+    "expo-secure-store": "~12.1.1",
+    "expo-build-properties": "~0.5.1",
+    "expo-device": "~5.2.1"
   }
 }
