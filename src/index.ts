@@ -77,7 +77,7 @@ const androidRequestIntegrityVerdict = async (
  * @description
  * iOS Only. Check if the device supports iOS AppAttest.
  *
- * Android does not expose or require a key identifier, and so running this function on Android will throw an error. Wrap in a platform check if you need to support both platforms.
+ * Attestation support is handled via an extensive system of exceptions after the service is requested. Running this function on Android will throw an error. Wrap in a platform check if you need to support both platforms.
  *
  * `AppIntegrity.isSupported()` is only exposed on iOS, but `expo-app-integrity` recommends not to use the API at all, in spite of Apple's recommendations. Apple includes the API so as not to
  * penalize users if AppAttest isn't supported on the device they're using. `AppIntegrity.isSupported()` is included in this API so that you can adopt Apple's recommended approach in your Expo

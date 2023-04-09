@@ -25,12 +25,9 @@
   "bugs": {
     "url": "https://github.com/jeffDevelops/expo-app-integrity/issues"
   },
-  "author": "Jeff <jefferydreynolds@gmail.com> (https://github.com/jeffDevelops)",
+  "author": "Jeff Reynolds <jefferydreynolds@gmail.com> (https://github.com/jeffDevelops)",
   "license": "MIT",
   "homepage": "https://github.com/jeffDevelops/expo-app-integrity#readme",
-  "dependencies": {
-    "expo-device": "~5.2.1"
-  },
   "devDependencies": {
     "@types/react": "^18.0.25",
     "@types/react-native": "^0.70.6",
