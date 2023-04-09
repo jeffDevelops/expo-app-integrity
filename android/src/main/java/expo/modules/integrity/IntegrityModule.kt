@@ -67,7 +67,7 @@ class IntegrityModule : Module() {
 
       return@AsyncFunction integrityManager.requestIntegrityToken(
         IntegrityTokenRequest.builder()
-//          .setCloudProjectNumber(cloudProjectNumber)
+          .setCloudProjectNumber(cloudProjectNumber)
           .setNonce(challenge)
           .build()
       ).addOnCompleteListener { task ->
