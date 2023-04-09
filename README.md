@@ -121,5 +121,7 @@ Errors are enumerations of the `DCError` (Device Check) class (iOS) or the `Inte
 
 All possible errors and their resolutions are laid out here:
 [iOS](./src/errors/iOS.ts)
+
 [Android](./src/errors/Android.ts)
+
 [`expo-app-integrity`-specific](./src/errors/PlatformAgnostic.ts)
