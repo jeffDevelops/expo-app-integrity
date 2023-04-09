@@ -21,3 +21,7 @@ export type AppIntegrityError = {
   /** Agent to resolve the error, if possible */
   resolutionType: ErrorResolutionTypes
 }
+
+export type UnhandledException = AppIntegrityError & {
+  originalMessage: string
+}
