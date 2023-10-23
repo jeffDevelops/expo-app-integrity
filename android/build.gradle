@@ -51,7 +51,7 @@ afterEvaluate {
 }
 
 android {
-  expo.modules.integrity = "expo.modules.integrity"
+  namespace = "expo.modules.integrity"
   compileSdkVersion safeExtGet("compileSdkVersion", 33)
 
   compileOptions {
